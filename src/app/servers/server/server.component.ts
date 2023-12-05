@@ -23,7 +23,7 @@ export class ServerComponent implements OnInit {
     //-3-
     this.route.params.subscribe(
       (param:any)=> {
-        this.server = this.serversService.getServer(+param['id']); //!!!
+        this.server = this.serversService.getServer(+param['id']); // param - is Object  !!!
       }
     )
   }
