@@ -17,6 +17,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import {AuthGuard} from "./auth-guard.service";
 import {AuthService} from "./auth.service";
 import {CanDeactivateGuard} from "./servers/edit-server/can-deactivate-guard.service";
+import { ErrorPageComponent } from './error-page/error-page.component';
+import {ServerResolver} from "./servers/server/server-resolver.service";
 
 
 @NgModule({
@@ -28,14 +30,15 @@ import {CanDeactivateGuard} from "./servers/edit-server/can-deactivate-guard.ser
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule //!! import
   ],
-  providers: [ServersService, AuthService, AuthGuard, CanDeactivateGuard],
+  providers: [ServersService, AuthService, AuthGuard, CanDeactivateGuard, ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
