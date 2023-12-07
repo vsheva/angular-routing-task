@@ -3,15 +3,19 @@ import {ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot} from "@angul
 
 export interface CanComponentDeactivate {
   //canDeactivate(): Observable<boolean> | Promise<boolean> | boolean ;
-  canDeactivate: ()=> Observable<boolean> | Promise<boolean> | boolean ;
+  handelRedirectionInMyComponent: ()=> Observable<boolean> | Promise<boolean> | boolean ;
 }
 
+
+
 export class CanDeactivateGuard implements CanDeactivate<CanComponentDeactivate> {
- canDeactivate(component:CanComponentDeactivate,
+
+ canDeactivate(myComponent:CanComponentDeactivate,
                currentRoute: ActivatedRouteSnapshot,
                currentState: RouterStateSnapshot,
-               nextState?: RouterStateSnapshot):Observable<boolean> | Promise<boolean> |
-   boolean  {
-   return component.canDeactivate() //we call function canDeactivate()
+               nextState?: RouterStateSnapshot):Observable<boolean> | Promise<boolean> | boolean  {
+
+   return myComponent.handelRedirectionInMyComponent() //we call function canDeactivate()
  }
+
 }

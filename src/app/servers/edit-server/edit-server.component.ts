@@ -10,6 +10,9 @@ import {Observable} from "rxjs";
   templateUrl: './edit-server.component.html',
   styleUrls: ['./edit-server.component.css']
 })
+
+
+// export class EditServerComponent implements OnInit, CanComponentDeactivate {
 export class EditServerComponent implements OnInit, CanComponentDeactivate {
   server: {id: number, name: string, status: string};
   serverName = '';
@@ -42,7 +45,9 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
     this.changesSaved = true;
     this.router.navigate(['../'], {relativeTo: this.route,  queryParamsHandling: 'preserve'})
   }
-  canDeactivate():Observable<boolean> | Promise<boolean> | boolean {
+
+
+  handelRedirectionInMyComponent():Observable<boolean> | Promise<boolean> | boolean {
     if(!this.allowEdit) {
       return true;
     }
